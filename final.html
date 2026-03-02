@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hệ thống Phân tích Di truyền - Auto EBV Tool</title>
+    <!-- Tích hợp Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tích hợp FontAwesome cho icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Cấu hình màu sắc tùy chỉnh -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            primary: '#3b368c', // Màu nền theme
+                            secondary: '#5a54db', // Màu nút bấm
+                            light: '#f3f4f6',
+                            dark: '#1f2937'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        .feature-image {
+            transition: transform 0.5s ease;
+        }
+        .feature-image:hover {
+            transform: scale(1.02);
+        }
+        .bg-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+<body class="text-gray-800 antialiased flex flex-col min-h-screen">
+
+    <!-- Header / Navbar -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center gap-3">
+                    <div class="bg-brand-primary text-white p-2 rounded-lg">
+                        <i class="fa-solid fa-dna text-xl"></i>
+                    </div>
+                    <span class="font-bold text-xl text-brand-primary">Phân tích Di truyền</span>
+                </div>
+                <div>
+                    <a href="#features" class="text-gray-600 hover:text-brand-primary px-3 py-2 font-medium transition-colors hidden md:inline-block">Các Tính năng</a>
+                    <a href="https://dabaco.genchat.vn/" target="_blank" class="ml-4 bg-brand-primary hover:bg-brand-secondary text-white px-4 py-2 rounded-md text-sm font-medium transition-colors shadow-sm">
+                        Truy cập Hệ thống <i class="fa-solid fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="bg-brand-primary text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-pattern"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 relative z-10 text-center">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-sm mb-6">
+                <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+                Hệ thống Tự động hoá
+            </div>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6">
+                Nền tảng <span class="text-blue-300">Auto-EBV Tool</span>
+            </h1>
+            <p class="mt-4 max-w-3xl mx-auto text-xl text-gray-200 leading-relaxed">
+                Tự động hoá hoàn toàn quá trình tính toán Giá trị Giống (EBV) vốn trước đây phải thao tác qua nhiều bước phức tạp. Giao diện trực quan, xử lý nhanh chóng và cung cấp kết quả di truyền chính xác.
+            </p>
+            <div class="mt-10 flex justify-center gap-4">
+                <a href="#features" class="bg-white text-brand-primary font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-gray-100 transition-colors flex items-center gap-2">
+                    Khám phá giao diện <i class="fa-solid fa-arrow-down"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Features Section with Images -->
+    <main id="features" class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">Các Chức Năng Cốt Lõi</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto text-lg">Mọi thao tác phức tạp đã được thu gọn trong các giao diện hiện đại, dễ sử dụng.</p>
+        </div>
+
+        <div class="space-y-24">
+            
+            <!-- Chức năng 1: Tính EBV (Ảnh trái, Text phải) -->
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-3/5 w-full">
+                    <div class="bg-gray-100 rounded-2xl p-2 shadow-inner border border-gray-200">
+                        <img src="image1.png" alt="Giao diện tính toán EBV" class="w-full h-auto rounded-xl shadow-lg feature-image border border-gray-300">
+                    </div>
+                </div>
+                <div class="lg:w-2/5 w-full">
+                    <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-3xl font-bold text-gray-900 mb-4">1. Tính toán EBV Tự động</h3>
+                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                        Chỉ với một cú click "Chạy Pipeline", hệ thống sẽ xử lý toàn bộ quá trình tính Giá trị Giống thay vì phải thực hiện thủ công từng bước. Bạn chỉ cần thoả mãn các đầu vào: file dữ liệu, cấu hình phả hệ và tham số biến.
+                    </p>
+                    <ul class="text-gray-700 space-y-3 mb-8">
+                        <li class="flex items-start"><i class="fa-solid fa-circle-check text-green-500 mt-1 mr-3"></i> <span>Trình diễn kết quả phân tích <strong>trực quan</strong> ngay trên màn hình (VCE/VG/VE).</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-circle-check text-green-500 mt-1 mr-3"></i> <span>Theo dõi trạng thái tiến trình chạy theo thời gian thực.</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-circle-check text-green-500 mt-1 mr-3"></i> <span>Xuất toàn bộ bảng kết quả chi tiết ra file Excel.</span></li>
+                    </ul>
+                    <a href="https://dabaco.genchat.vn/ebv" target="_blank" class="inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors shadow-md w-full sm:w-auto">
+                        Truy cập trang EBV <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Chức năng 2: Tỷ lệ cận huyết (Text trái, Ảnh phải) -->
+            <div class="flex flex-col lg:flex-row-reverse items-center gap-12">
+                <div class="lg:w-3/5 w-full">
+                    <div class="bg-gray-100 rounded-2xl p-2 shadow-inner border border-gray-200">
+                        <img src="image2.png" alt="Giao diện phân tích cận huyết" class="w-full h-auto rounded-xl shadow-lg feature-image border border-gray-300">
+                    </div>
+                </div>
+                <div class="lg:w-2/5 w-full">
+                    <div class="w-14 h-14 bg-red-100 text-red-600 rounded-xl flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-users-slash"></i>
+                    </div>
+                    <h3 class="text-3xl font-bold text-gray-900 mb-4">2. Phân tích Tỷ lệ Cận huyết</h3>
+                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                        Đánh giá và kiểm soát hệ số cận huyết (F) một cách dễ dàng. Nạp phả hệ và cấu hình hệ số giới hạn để nhận ngay báo cáo di truyền trực quan.
+                    </p>
+                    <ul class="text-gray-700 space-y-3 mb-8">
+                        <li class="flex items-start"><i class="fa-solid fa-circle-check text-green-500 mt-1 mr-3"></i> <span>Thống kê nhanh số lượng <strong>cặp cá thể cận huyết</strong> và không cận huyết.</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-circle-check text-green-500 mt-1 mr-3"></i> <span>Hiển thị danh sách chi tiết các cá thể có nguy cơ (hệ số F cao vượt ngưỡng).</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-circle-check text-green-500 mt-1 mr-3"></i> <span>Dễ dàng xuất báo cáo tổng hợp ra định dạng Excel.</span></li>
+                    </ul>
+                    <a href="https://dabaco.genchat.vn/inbreeding" target="_blank" class="inline-flex items-center justify-center px-6 py-3 bg-red-600 text-white font-medium rounded-lg hover:bg-red-700 transition-colors shadow-md w-full sm:w-auto">
+                        Truy cập trang Cận huyết <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Chức năng 3: Quản lý phiên chạy (Ảnh trái, Text phải) -->
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-3/5 w-full">
+                    <div class="bg-gray-100 rounded-2xl p-2 shadow-inner border border-gray-200">
+                        <img src="image3.png" alt="Giao diện quản lý phiên chạy" class="w-full h-auto rounded-xl shadow-lg feature-image border border-gray-300">
+                    </div>
+                </div>
+                <div class="lg:w-2/5 w-full">
+                    <div class="w-14 h-14 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+                    </div>
+                    <h3 class="text-3xl font-bold text-gray-900 mb-4">3. Quản lý Phiên chạy (Sessions)</h3>
+                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                        Không bao giờ đánh mất tiến trình công việc. Hệ thống lưu trữ tự động mọi lịch sử tính toán EBV và Cận huyết, giúp bạn dễ dàng truy xuất và xử lý lại dữ liệu.
+                    </p>
+                    <ul class="text-gray-700 space-y-3 mb-8">
+                        <li class="flex items-start"><i class="fa-solid fa-circle-check text-green-500 mt-1 mr-3"></i> <span>Hiển thị thông tin chi tiết: Session ID, loại phân tích, thời gian và trạng thái.</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-circle-check text-green-500 mt-1 mr-3"></i> <span>Hỗ trợ <strong>tải lại file input</strong> đã upload ở phiên trước đó.</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-circle-check text-green-500 mt-1 mr-3"></i> <span>Thao tác nhanh: tải file kết quả, xoá phiên hoặc xem chi tiết.</span></li>
+                    </ul>
+                    <a href="https://dabaco.genchat.vn/sessions" target="_blank" class="inline-flex items-center justify-center px-6 py-3 bg-purple-600 text-white font-medium rounded-lg hover:bg-purple-700 transition-colors shadow-md w-full sm:w-auto">
+                        Truy cập Quản lý Phiên <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col md:flex-row items-center justify-between">
+            <div class="flex items-center gap-2 mb-4 md:mb-0">
+                <i class="fa-solid fa-dna text-brand-primary"></i>
+                <span class="font-semibold text-gray-700">Hệ thống Phân tích Di truyền</span>
+            </div>
+            <p class="text-sm text-gray-500">
+                © 2024 Auto-EBV Analysis Tool. Đã bảo lưu mọi quyền.
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
